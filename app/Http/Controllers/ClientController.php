@@ -55,7 +55,7 @@ class ClientController extends Controller
         }
         $client = Client::find($id);
 
-        $client->update($validatedData);
+        $client->update($validatedData->validated());
 
         //Return the updated client
         return response()->json($client);

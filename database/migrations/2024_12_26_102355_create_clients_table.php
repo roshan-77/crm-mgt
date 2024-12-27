@@ -17,8 +17,8 @@ return new class extends Migration
             $table->string('email', 50); 
             $table->string('number', 15);
             $table->boolean('company'); //If a project is from company(1) or an individual(0) client.
-            $table->string('address', 50);
-            $table->string('referred_by', 50);
+            $table->string('address', 50)->nullable();
+            $table->string('referred_by', 50)->nullable();
             $table->timestamps();
         });
     }
