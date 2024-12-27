@@ -14,17 +14,13 @@ class UserController extends Controller
         //return as json
         return response()->json($users);
     }
- 
-    public function create(){
-        dd('here');
-    }
+
 
     public function show($id){
         //Get
         $user = User::find($id);
         //Show
         if(!$user){
-            dd('Roshan');
             abort(404);
         }
 
@@ -47,7 +43,6 @@ class UserController extends Controller
         $user->email = $request->email;
         $user->save();
         //return as json
-        dd($user);
         return response()->json($user);
     }
 }
