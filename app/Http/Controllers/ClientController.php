@@ -21,8 +21,8 @@ class ClientController extends Controller
             'email'=>'required|string|email|max:50',
             'number'=>'required|string|max:15',
             'company'=>'required|boolean',
-            'address'=>'required|string|max:50',
-            'referred_by'=>'required|string|max:50',
+            'address'=>'string|max:50',
+            'referred_by'=>'string|max:50',
         ]);
 
         if($validateData->fails()){
@@ -43,8 +43,8 @@ class ClientController extends Controller
             'email'=>'required|string|email|max:50',
             'number'=>'required|string|max:15',
             'company'=>'required|boolean',
-            'address'=>'required|string|max:50',
-            'referred_by'=>'required|string|max:50',
+            'address'=>'string|max:50',
+            'referred_by'=>'string|max:50',
         ]);
 
         if($validatedData->fails()){
