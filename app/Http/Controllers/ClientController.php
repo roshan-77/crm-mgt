@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreClientRequest;
 use App\Http\Requests\UpdateClientRequest;
 use Illuminate\Http\Request;
 use App\Models\Client;
@@ -16,24 +17,14 @@ class ClientController extends Controller
         return response()->json($clients);
     }
 
-    public function store(Request $request){
-        $validateData = Validator::make($request->all(),[
-            'name'=>'required|string|max:50',
-            'email'=>'required|string|email|max:50|unique:clients',
-            'number'=>'required|string|max:15',
-            'company'=>'required|boolean',
-            'address'=>'string|max:50',
-            'referred_by'=>'string|max:50',
-        ]);
+    public function show($id){
+        $client = Client::find($id);
+        return response()-> json($client);
+    }
 
-        if($validateData->fails()){
-            return response()->json([
-                'message' => 'Validation Failed.',
-                'errors' => $validateData->errors()
-            ]);
-        }
-
-        $client = Client::create($validateData->validated());
+    public function store(StoreClientRequest $request){
+        
+        $client = Client::create($request->validated());
         return response()->json($client);
     }  
 
