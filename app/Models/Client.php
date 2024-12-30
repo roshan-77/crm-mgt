@@ -17,6 +17,7 @@ class Client extends Model
         'company',
         'address',
         'referred_by',
+        'lead',
 
     ];
 }

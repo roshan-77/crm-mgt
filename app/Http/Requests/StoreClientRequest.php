@@ -29,8 +29,9 @@ class StoreClientRequest extends FormRequest
             'email' => ['required', 'string', 'email', 'max:50', 'unique:clients'],
             'number' => ['required', 'string', 'max:15'],
             'company' => ['required', 'boolean'],
-            'address' => ['string', 'max:50'],
-            'referred_by' => ['string', 'max:50'],
+            'lead' => ['required', 'boolean'],
+            'address' => ['nullable', 'string', 'max:50'],
+            'referred_by' => ['nullable', 'string', 'max:50'],
         ];
     }
 

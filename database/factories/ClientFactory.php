@@ -24,6 +24,7 @@ class ClientFactory extends Factory
             'email' => fake()->email(),
             'number' => Str::limit(fake()->phoneNumber(),15, ''),
             'company' => rand(0,1),
+            'lead' => rand(0,1),
         ];
     }
 }
